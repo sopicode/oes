@@ -19,9 +19,9 @@ public class LoginDaoImpl implements LoginDao {
 		con = databasecon.getConnection();
 	}
 
-	public boolean authenticate(String userid, String password) {
+	public boolean authenticate(String userid, String password,String tableName) {
 		
-		String query = "select * from users_16189 where username=? and password=?";
+		String query = "select * from "+tableName+" where username=? and password=?";
 		ResultSet rs;
 		try {
 			PreparedStatement prep = con.prepareStatement(query);
@@ -40,8 +40,8 @@ public class LoginDaoImpl implements LoginDao {
 
 
 	@Override
-	public int userId(String username, String password) {
-		String query = "select user_id from users_16189 where username=? and password=?";
+	public int userId(String username, String password,String tableName) {
+		String query = "select user_id from "+tableName+" where username=? and password=?";
 		ResultSet rs;
 		int userid=0;
 		try {
@@ -64,10 +64,10 @@ public class LoginDaoImpl implements LoginDao {
 
 
 	@Override
-	public User userDetails(int userid) {
+	public User userDetails(int userid,String tableName) {
 		
 		
-		String query = "select * from users_16189 where user_id=?";
+		String query = "select * from "+tableName+" where user_id=?";
 		ResultSet rs;
 		User user=new User();
 		try {

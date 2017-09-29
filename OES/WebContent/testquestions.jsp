@@ -4,13 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>OES Login</title>
+<title>OES</title>
 </head>
 <body>
-<form action="Login" method="post">
-Enter Username: <input type="text" name="username" id="username"><br>
-Enter Password: <input type="text" name="password" id="password"><br>
-<input type="submit" value="Login">
-</form>
+<p>Question1</p>
+
 </body>
 </html>

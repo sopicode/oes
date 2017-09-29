@@ -4,13 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>OES Login</title>
+<title>OES Topic</title>
 </head>
 <body>
-<form action="Login" method="post">
-Enter Username: <input type="text" name="username" id="username"><br>
-Enter Password: <input type="text" name="password" id="password"><br>
-<input type="submit" value="Login">
+<form action="InsertTopic" method="post">
+<h1 align="center">Enter Topic
+<input type="text" name="topic" /><br>
+<h1 align="center">Enter Marks
+<input type="text" name="marks" />
+<br><br>
+<input type="submit" name="topicsubmit" value="Insert Topic" width="500" height="500"/>
 </form>
 </body>
 </html>

@@ -13,43 +13,40 @@ import com.inautix.model.User;
 import com.inautix.serviceimpl.LoginServiceImpl;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class AdminLoginServlet
  */
-@WebServlet("/Login")
-public class LoginServlet extends HttpServlet {
-	
+@WebServlet("/Admin")
+public class AdminLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private LoginServiceImpl loginService;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public AdminLoginServlet() {
         super();
-        // TODO Auto-generated constructor stub
-        loginService=new LoginServiceImpl();
+      loginService=new LoginServiceImpl();
     }
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");
-		boolean auth=loginService.authenticate(username, password,"users_16189");
-		RequestDispatcher rd=request.getRequestDispatcher("OES.jsp");
-		RequestDispatcher rd2=request.getRequestDispatcher("error.jsp");
+		boolean auth=loginService.authenticate(username, password,"admin_16189");
+		RequestDispatcher rd=request.getRequestDispatcher("Adminpage.jsp");
+		RequestDispatcher rd2=request.getRequestDispatcher("../error.jsp");
 		if(auth)
 		{
-			User user=loginService.userDetails(loginService.userId(username, password,"uses_16189"),"users_16189");
+			User user=loginService.userDetails(loginService.userId(username, password,"admin_16189"),"admin_16189");
 			System.out.println(user.getName());
 			request.setAttribute("user", user);
 			rd.forward(request, response);
 		}
 		else
 			rd2.forward(request, response);
-		
 	}
 
 }

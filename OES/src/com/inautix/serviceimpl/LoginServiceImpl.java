@@ -13,21 +13,21 @@ public class LoginServiceImpl implements LoginService {
 	}
 	
 	@Override
-	public boolean authenticate(String userid, String password) {
+	public boolean authenticate(String userid, String password,String tableName) {
 		// TODO Auto-generated method stub
-		return logindao.authenticate(userid, password);
+		return logindao.authenticate(userid, password,tableName);
 	}
 
 	@Override
-	public int userId(String username, String password) {
+	public int userId(String username, String password,String tableName) {
 		// TODO Auto-generated method stub
-		return logindao.userId(username, password);
+		return logindao.userId(username, password,tableName);
 	}
 
 	@Override
-	public User userDetails(int userid) {
+	public User userDetails(int userid,String tableName) {
 		// TODO Auto-generated method stub
-		return logindao.userDetails(userid);
+		return logindao.userDetails(userid,tableName);
 	}
 	
 
